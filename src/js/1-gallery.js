@@ -77,26 +77,18 @@ for (const img of images) {
 		<img 
 		  class="gallery-image" 
 		  src="${preview}" 
-		  title="${description}" 
+		  alt="${description}" 
 		/>
 	</a>
 </li>`;
 }
-
-gallery1.addEventListener('click', e => {
-  e.preventDefault();
-  if (e.target.nodeName !== 'IMG') {
-    return;
-  }
-});
 
 document.addEventListener('DOMContentLoaded', () => {
   gallery1.innerHTML = liElem;
 
   let gallery = new SimpleLightbox('.gallery a', {
     captions: true,
-    captionType: 'alt',
-    captionData: 'alt',
+    captionsData: 'alt',
     captionDelay: 250,
     captionPosition: 'bottom',
   });

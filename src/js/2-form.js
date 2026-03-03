@@ -24,11 +24,13 @@ form.addEventListener('submit', e => {
   ) {
     return alert('Fill please all fields');
   }
+  console.log(formData);
+  formData.email = '';
+  formData.message = '';
+  localStorage.clear();
   form.reset();
 });
 form.addEventListener('input', e => {
-  e.preventDefault();
-
   const formInput = new FormData(form);
   const email = formInput.get('email');
   const message = formInput.get('message');
