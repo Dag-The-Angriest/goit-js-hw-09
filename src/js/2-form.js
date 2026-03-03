@@ -1,20 +1,21 @@
 const form = document.querySelector('.feedback-form');
-
-document.addEventListener('DOMContentLoaded', e => {
-  //   loadFromLS(formData.email);
-  const loaded = loadFromLS('formData');
-  //   console.log(loaded);
-  formData.email = loaded.email;
-  formData.message = loaded.message;
-  form.elements.email.value = formData.email;
-  form.elements.message.value = formData.message;
-  //   console.log(formData);
-});
-
 const formData = {
   email: '',
   message: '',
 };
+document.addEventListener('DOMContentLoaded', e => {
+  //   loadFromLS(formData.email);
+  const loaded = loadFromLS('formData');
+  if (loaded === !undefined) {
+    formData.email = loaded.email;
+    formData.message = loaded.message;
+  }
+  //   console.log(loaded);
+
+  form.elements.email.value = formData.email;
+  form.elements.message.value = formData.message;
+  //   console.log(formData);
+});
 
 form.addEventListener('submit', e => {
   e.preventDefault();
@@ -27,7 +28,7 @@ form.addEventListener('submit', e => {
   console.log(formData);
   formData.email = '';
   formData.message = '';
-  localStorage.clear();
+  localStorage.removeItem('formData');
   form.reset();
 });
 form.addEventListener('input', e => {
