@@ -3,21 +3,19 @@ const form = document.querySelector('.feedback-form');
 document.addEventListener('DOMContentLoaded', e => {
   //   loadFromLS(formData.email);
   const loaded = loadFromLS('formData');
-  console.log(loaded);
+  //   console.log(loaded);
   formData.email = loaded.email;
   formData.message = loaded.message;
   form.elements.email.value = formData.email;
   form.elements.message.value = formData.message;
-  console.log(formData);
+  //   console.log(formData);
 });
 
 const formData = {
   email: '',
   message: '',
 };
-// const formData = new FormData();
-// formData.append('email');
-// formData.append('message');
+
 form.addEventListener('submit', e => {
   e.preventDefault();
   if (
@@ -37,7 +35,7 @@ form.addEventListener('input', e => {
   formData.email = email.trim();
   formData.message = message.trim();
   saveToLS('formData', formData);
-  console.log(formData);
+  //   console.log(formData);
 });
 
 function saveToLS(key, value) {
