@@ -6,7 +6,7 @@ const formData = {
 document.addEventListener('DOMContentLoaded', e => {
   //   loadFromLS(formData.email);
   const loaded = loadFromLS('formData');
-  if (loaded === !undefined) {
+  if (loaded !== undefined) {
     formData.email = loaded.email;
     formData.message = loaded.message;
   }
